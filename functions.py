@@ -139,16 +139,14 @@
 
 names_surnames: str = "Albert Naimovic, Karina Krysko"
 
-list_of_names_surnames = names_surnames.split(", ")
-print(list_of_names_surnames)
 
-def swap_surnames(list_of_names_surnames: list) -> list:
-    dict_of_names: dict = {}
-    for i in list_of_names_surnames:
-        pair_list = i.split(' ')
-        temp_dict = {pair_list[0]: pair_list[1]}
-        dict_of_names.update(temp_dict)
+def swap_surnames(names_surnames: list) -> list:
+    list_of_names_surnames = names_surnames.replace(",", "").split(" ")
+    my_order = [1, 4, 2, 1]
+    list_of_names_surnames = [list_of_names_surnames[i] for i in my_order]
+    return list_of_names_surnames
+
     
-    return dict_of_names
     
-print(swap_surnames(list_of_names_surnames=list_of_names_surnames))
+    
+print(swap_surnames(names_surnames=names_surnames))
